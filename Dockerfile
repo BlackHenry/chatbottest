@@ -5,7 +5,7 @@ RUN pip install pandas
 RUN pip install numpy  
 RUN pip install webapp2
 
-ADD bot.py /
+ADD webhook.py /
 
 
-CMD [ "python", "./bot.py" ]
+CMD [ "python", "./webhook.py" ]
