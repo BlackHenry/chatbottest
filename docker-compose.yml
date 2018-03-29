@@ -1,5 +1,19 @@
-version: '2'
-services:
-  docker-whale:
-    image: docker-whale
-    build: .
+runtime: python
+env: flex
+api_version: 1
+threadsafe: true
+  
+handlers:
+- url: /.*
+  script: webhook.app
+
+builtins:
+- deferred: on
+
+readiness_check:
+  path: "/readiness_check"
+  check_interval_sec: 5
+  timeout_sec: 4
+  failure_threshold: 2
+  success_threshold: 2
+  app_start_timeout_sec: 3000
