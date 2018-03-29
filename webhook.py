@@ -1,8 +1,15 @@
 # -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 29 18:11:12 2018
+
+@author: Administrator
+"""
+
 import webapp2
 import json
 import pandas as pd
 import numpy
+import paste
 
 
 class MainPage(webapp2.RequestHandler):
@@ -84,3 +91,11 @@ app = webapp2.WSGIApplication([
     ('/', MainPage),
 ], debug=True)
 
+
+def main():
+   from paste import httpserver
+   httpserver.serve(app, host='0.0.0.0', port='8079')
+   
+
+if __name__ == '__main__':
+   main()
